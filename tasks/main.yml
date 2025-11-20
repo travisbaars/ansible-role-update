@@ -1,3 +1,25 @@
 #SPDX-License-Identifier: MIT-0
 ---
 # tasks file for .
+- name: Update package cache (Ubuntu)
+  ansible.bulitin.apt:
+    update_cache: true
+    cache_valid_time: 3000
+  when: ansible_distribution == "Ubuntu"
+
+- name: Upgrade system packages (Ubuntu)
+  ansible.bulitin.apt:
+    upgrade: dist
+  when: ansible_distribition == "Ubuntu"
+
+- name: Update package cache (Fedora)
+  ansible.builtin.dnf5:
+    update_cache: true
+    state: present
+  when: ansible_distribition == "Fedora"
+
+- name: Upgrade system packages (Fedora)
+  ansible.builtin.dnf5:
+    name: "*"
+    state: latest
+  when: ansible_distribution == "Fedora"
