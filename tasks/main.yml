@@ -2,13 +2,13 @@
 ---
 # tasks file for .
 - name: Update package cache (Ubuntu)
-  ansible.bulitin.apt:
+  ansible.builtin.apt:
     update_cache: true
     cache_valid_time: 3000
   when: ansible_distribution == "Ubuntu"
 
 - name: Upgrade system packages (Ubuntu)
-  ansible.bulitin.apt:
+  ansible.builtin.apt:
     upgrade: dist
   when: ansible_distribition == "Ubuntu"
 
