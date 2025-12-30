@@ -10,13 +10,13 @@
 - name: Upgrade system packages (Ubuntu)
   ansible.builtin.apt:
     upgrade: dist
-  when: ansible_distribition == "Ubuntu"
+  when: ansible_distribution == "Ubuntu"
 
 - name: Update package cache (Fedora)
   ansible.builtin.dnf5:
     update_cache: true
     state: present
-  when: ansible_distribition == "Fedora"
+  when: ansible_distribution == "Fedora"
 
 - name: Upgrade system packages (Fedora)
   ansible.builtin.dnf5:
